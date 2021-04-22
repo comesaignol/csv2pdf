@@ -21,7 +21,7 @@ Pour installer les packages manquants :
 
     pip install -r path\to\requirements.txt
     
-avec le chemin absolu correspondant au fichier requirements.txt présent dans cet outil.
+avec le chemin absolu correspondant au fichier « requirements.txt » présent dans cet outil.
 
 ## Usage
 
