@@ -78,13 +78,13 @@ for file in fileList:
   print("Done", fileName, "Export du CSV")
   
   # Date de la création du fichier
-  date = date.today()
-  date = date.strftime("%d/%m/%Y")
+  dateToday = date.today()
+  dateToday = dateToday.strftime("%d/%m/%Y")
   
   def addPageNumber(canvas, doc):
     # Add the page number
     page_num = canvas.getPageNumber()
-    text = "Table des matières publiée par l’équipe éditoriale Joyeuses Inventions. Date de création du fichier : " + date + " " + "© Joyeuses Inventions" + " Page %s" % page_num
+    text = "Table des matières publiée par l’équipe éditoriale Joyeuses Inventions. Date de création du fichier : " + dateToday + " " + "© Joyeuses Inventions" + " Page %s" % page_num
     canvas.setFont('Vera', 8)
     canvas.drawRightString(25*cm, 0.5*cm, text)
     
