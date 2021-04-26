@@ -53,6 +53,11 @@ for file in fileList:
   # Lecture du fichier
   df = pd.read_csv(file, sep=config.inputSeparator, header=0)
   
+  # Trier le tableau de données par ordre croissant
+  df = df.sort_values(by=['Dublin Core:Title'])
+  print(df)
+  
+  
   # Suppression de la ligne 0
   titre = str(df.iloc[0, 1])
   df = df.drop(df.index[0]) # Ligne à supprimer
