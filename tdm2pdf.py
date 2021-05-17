@@ -26,7 +26,6 @@ from reportlab.lib.enums import TA_JUSTIFY, TA_CENTER, TA_LEFT, TA_RIGHT
 from reportlab.lib.colors import HexColor
 from reportlab.lib import colors
 
-
 # Fonction créant un fichier
 def createDir(path):
   if os.path.exists(path):
@@ -53,11 +52,6 @@ for file in fileList:
   # Lecture du fichier
   df = pd.read_csv(file, sep=config.inputSeparator, header=0)
   
-  # Trier le tableau de données par ordre croissant
-  df = df.sort_values(by=['Dublin Core:Title'])
-  print(df)
-  
-  
   # Suppression de la ligne 0
   titre = str(df.iloc[0, 1])
   df = df.drop(df.index[0]) # Ligne à supprimer
@@ -83,13 +77,13 @@ for file in fileList:
   print("Done", fileName, "Export du CSV")
   
   # Date de la création du fichier
-  dateToday = date.today()
-  dateToday = dateToday.strftime("%d/%m/%Y")
+  date = date.today()
+  date = date.strftime("%d/%m/%Y")
   
   def addPageNumber(canvas, doc):
     # Add the page number
     page_num = canvas.getPageNumber()
-    text = "Table des matières publiée par l’équipe éditoriale Joyeuses Inventions. Date de création du fichier : " + dateToday + " " + "© Joyeuses Inventions" + " Page %s" % page_num
+    text = "Équipe Joyeuses Inventions ; EMAN (Thalim, CNRS-ENS-Sorbonne nouvelle) ; CC BY-SA 3.0 FR. Date de création du fichier : " + date + " " + " Page %s" % page_num
     canvas.setFont('Vera', 8)
     canvas.drawRightString(25*cm, 0.5*cm, text)
     

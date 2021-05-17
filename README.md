@@ -2,9 +2,11 @@
 
 ## Présentation
 
-tdm2pdf est un outil développé en Python 3 permettant la transformation d’un fichier CSV dans deux autres fichiers : un nouveau fichier CSV corrigé et un fichier PDF. Cet outil a été utilisé dans le cadre du projet Joyeuses Inventions pour mettre à disposition de la communauté scientifique les tables des matières des œuvres poétiques analysées.
+tdm2pdf est un outil développé en Python 3 convertissant un fichier CSV dans deux nouveaux fichiers : un fichier CSV corrigé et un fichier PDF. Cet outil a été utilisé dans le cadre du projet Joyeuses Inventions pour mettre à disposition de la communauté scientifique les tables des matières des œuvres poétiques analysées.
 
-tdm2pdf a été conçu pour gérer les fichiers par lots. Il est composé de deux fichiers principaux :
+tdm2pdf a été conçu pour gérer les fichiers par lots : pour chaque documents en entrée, il crée un dossier de sortie comportant les deux documents.
+
+Il est composé de deux fichiers principaux :
 
 * « tdm2pdf » qui contient le cœur du programme ;
 * « config.py » comportant les paramètres d’utilisation.
