@@ -52,6 +52,9 @@ for file in fileList:
   # Lecture du fichier
   df = pd.read_csv(file, sep=config.inputSeparator, header=0)
   
+  # Agencement du dataframe
+  df.sort_values(by=['Dublin Core:Title'], inplace=True)
+  
   # Suppression de la ligne 0
   titre = str(df.iloc[0, 1])
   df = df.drop(df.index[0]) # Ligne à supprimer
@@ -71,6 +74,9 @@ for file in fileList:
   # Agencement du dataframe
   df2.sort_values(by=['Item Type Metadata:Numéro de la pièce'], inplace=True)
   
+  # Remplacement des cases vides qui généraient un bug
+  df2 = df2.fillna("!! CASES VIDES !!")
+  
   # Création du fichier CSV
   path = os.path.join(config.outputDir, fileName, fileName + ".csv")
   df2.to_csv(path, sep=config.outputSeparator)
@@ -78,12 +84,12 @@ for file in fileList:
   
   # Date de la création du fichier
   date = date.today()
-  date = date.strftime("%d/%m/%Y")
+  dateToday = date.strftime("%d/%m/%Y")
   
   def addPageNumber(canvas, doc):
     # Add the page number
     page_num = canvas.getPageNumber()
-    text = "Équipe Joyeuses Inventions ; EMAN (Thalim, CNRS-ENS-Sorbonne nouvelle) ; CC BY-SA 3.0 FR. Date de création du fichier : " + date + " " + " Page %s" % page_num
+    text = "Équipe Joyeuses Inventions ; EMAN (Thalim, CNRS-ENS-Sorbonne nouvelle) ; CC BY-SA 3.0 FR. Date de création du fichier : " + dateToday + " " + " Page %s" % page_num
     canvas.setFont('Vera', 8)
     canvas.drawRightString(25*cm, 0.5*cm, text)
     
