@@ -90,15 +90,15 @@ for file in fileList:
     # Add the page number
     page_num = canvas.getPageNumber()
     text = "Équipe Joyeuses Inventions ; EMAN (Thalim, CNRS-ENS-Sorbonne nouvelle) ; CC BY-SA 3.0 FR. Date de création du fichier : " + dateToday + " " + " Page %s" % page_num
-    canvas.setFont('Vera', 8)
+    canvas.setFont('DejaVuSans', 8)
     canvas.drawRightString(25*cm, 0.5*cm, text)
     
   
   # Enregistrement des familles de polices
-  pdfmetrics.registerFont(TTFont("Vera", "Vera.ttf"))
-  pdfmetrics.registerFont(TTFont("VeraBd", "VeraBd.ttf"))
-  pdfmetrics.registerFont(TTFont("VeraIt", "VeraIt.ttf"))
-  pdfmetrics.registerFont(TTFont("VeraBI", "VeraBI.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSans", "font/DejaVuSans.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansBd", "DejaVuSans-Bold.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansIt", "DejaVuSans-Oblique.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansBI", "DejaVuSans-BoldOblique.ttf"))
   
   # Configuration du PDF
   path = os.path.join(config.outputDir, fileName, fileName + ".pdf")
@@ -113,7 +113,7 @@ for file in fileList:
   style = getSampleStyleSheet()
   
   style.add(ParagraphStyle(name="Titre 1",
-                         fontName = "Vera",
+                         fontName = "DejaVuSans",
                          fontSize = 8,
                          leftIndent = 0,
                          rightIndent = 0,
@@ -122,7 +122,7 @@ for file in fileList:
                          spaceAfter = 0.25*cm))
   
   style.add(ParagraphStyle(name="titre1URL",
-                         fontName = "Vera",
+                         fontName = "DejaVuSans",
                          textColor = colors.HexColor("#0000FF"),
                          fontSize = 8,
                          leftIndent = 0,
@@ -141,7 +141,7 @@ for file in fileList:
   styles = getSampleStyleSheet()
   styleN = styles['Normal']
   styleN.wordWrap = 'CJK'
-  styleN.fontName = "Vera"
+  styleN.fontName = "DejaVuSans"
   styleN.fontSize = 8
   
   # Paramètre de la table
@@ -153,7 +153,7 @@ for file in fileList:
   
   # Style de la table
   table.setStyle([('BACKGROUND',(0,0),(-1,0),HexColor("#fff5ce")),
-                  ("FONTANME", (0,0),(-1,0), "VeraBd"),
+                  ("FONTANME", (0,0),(-1,0), "DejaVuSansBd"),
                   ("VALIGN", (0,0), (-1,-1), "MIDDLE"),
                   ("ALIGN", (0,0), (-1,-1), "LEFT"),
                   ('INNERGRID', (0,0), (-1,-1), 0.25, colors.black),
