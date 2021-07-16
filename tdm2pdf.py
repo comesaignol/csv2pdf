@@ -96,9 +96,9 @@ for file in fileList:
   
   # Enregistrement des familles de polices
   pdfmetrics.registerFont(TTFont("DejaVuSans", "font/DejaVuSans.ttf"))
-  pdfmetrics.registerFont(TTFont("DejaVuSansBd", "DejaVuSans-Bold.ttf"))
-  pdfmetrics.registerFont(TTFont("DejaVuSansIt", "DejaVuSans-Oblique.ttf"))
-  pdfmetrics.registerFont(TTFont("DejaVuSansBI", "DejaVuSans-BoldOblique.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansBd", "font/DejaVuSans-Bold.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansIt", "font/DejaVuSans-Oblique.ttf"))
+  pdfmetrics.registerFont(TTFont("DejaVuSansBI", "font/DejaVuSans-BoldOblique.ttf"))
   
   # Configuration du PDF
   path = os.path.join(config.outputDir, fileName, fileName + ".pdf")
